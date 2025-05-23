@@ -38,6 +38,7 @@ const App = () => {
     setErrorMessage("");
 
     try {
+      alert("Use VPN of other country except INDIA to get the best use of this website.")
       const endpoint = query
         ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(
             query
