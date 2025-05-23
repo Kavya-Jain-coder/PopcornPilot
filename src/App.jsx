@@ -23,7 +23,7 @@ const App = () => {
 
   const [movieList, setMovieList] = useState([]);
 
-  const [trendingMovies, setTrendingMovies] = useState([])
+  const [trendingMovies, setTrendingMovies] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,13 +31,13 @@ const App = () => {
 
   useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm]);
 
+
   const fetchMovies = async (query = "") => {
     setIsLoading(true);
 
     setErrorMessage("");
 
     try {
-      alert("Use a VPN for the best experience")
       const endpoint = query
         ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(
             query
@@ -60,8 +60,8 @@ const App = () => {
 
       setMovieList(data.results || []);
 
-      if(query && data.results.length > 0){
-        await updateSearchCount(query, data.results[0])
+      if (query && data.results.length > 0) {
+        await updateSearchCount(query, data.results[0]);
       }
     } catch (error) {
       console.error(`Error fetching movies: ${error}`);
@@ -94,17 +94,24 @@ const App = () => {
     <main>
       <div className="pattern" />
       <div className="wrapper">
+        
         <header>
-          <div style={{
-            display: "inline"
-          }}>
-          <img src="./logo.png" alt="website-logo" style={{
-            marginTop: "0px",
-            marginBottom: "0px",
-            height: "150px",
-            width: "150px"
-          }}/>
-          <h1 className="text-gradient">PopcornPilot</h1>
+          <div
+            style={{
+              display: "inline",
+            }}
+          >
+            <img
+              src="./logo.png"
+              alt="website-logo"
+              style={{
+                marginTop: "0px",
+                marginBottom: "0px",
+                height: "150px",
+                width: "150px",
+              }}
+            />
+            <h1 className="text-gradient">PopcornPilot</h1>
           </div>
           <img src="./hero.png" alt="hero-banner" />
           <h1>
